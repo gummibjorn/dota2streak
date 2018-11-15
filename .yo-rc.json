@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.zuehlke.dota2streak"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "dota2streak",
+    "packageName": "com.zuehlke.dota2streak",
+    "packageFolder": "com/zuehlke/dota2streak",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mariadb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZjZjYTc0MGY1MTllNzY1OGY2ZDU5MzllZDQxZDU3ZmZiYzg4YzFmNzYyODU5YmM0ZjcyNDI4NzFlYWIwOTdjYWMwZmYxYzk5ZjQ1ZjU4ZWFlOTMzZjJkNjQ3ZGJlODQ5ZjNmYTI1YTNiYmYwODlkZjBkODVkYjRhYzE2MDk4MTM=",
+    "clientFramework": "react",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
