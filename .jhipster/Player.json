@@ -1,0 +1,27 @@
+{
+    "name": "Player",
+    "fields": [
+        {
+            "fieldName": "playerId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "streak",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181115094439",
+    "entityTableName": "player",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

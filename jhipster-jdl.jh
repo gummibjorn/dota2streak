@@ -1,0 +1,19 @@
+entity Player {
+	playerId Integer
+    streak Integer
+    username String
+}
+
+entity Dashboard {
+	username String
+    playerId Integer
+    secret String
+}
+
+relationship ManyToMany {
+	Dashboard{players} to Player
+}
+
+relationship OneToOne {
+	Dashboard to User
+}

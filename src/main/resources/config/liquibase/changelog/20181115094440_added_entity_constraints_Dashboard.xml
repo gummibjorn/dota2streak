@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Dashboard.
+    -->
+    <changeSet id="20181115094440-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="dashboard"
+                                 constraintName="fk_dashboard_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="dashboards_id"
+                                 baseTableName="dashboard_players"
+                                 constraintName="fk_dashboard_players_dashboards_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dashboard"/>
+        <addForeignKeyConstraint baseColumnNames="players_id"
+                                 baseTableName="dashboard_players"
+                                 constraintName="fk_dashboard_players_players_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="player"/>
+        
+    </changeSet>
+</databaseChangeLog>
