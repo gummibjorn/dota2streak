@@ -18,22 +18,15 @@ export class Dashboard extends React.Component<IDashboardProp> {
     this.props.getEntities();
   }
 
-  componentDidUpdate() {
-    if (this.props.dashboards && this.props.dashboards[0]) {
-      this.props.getEntity(this.props.dashboards[0].id);
-    }
-  }
-
   render() {
-    const { players, dashboards } = this.props;
+    const { dashboards } = this.props;
     return (
       <div>
-        {dashboards && players ? (
-          <div>
-            Dashboard: {dashboards[0].id}
-            {players.map(player => {
-              return <Player name={player.username} streak={player.streak} />;
-            })}
+        {dashboards && dashboards[0] ? (
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            {dashboards[0].players.map(player => (
+              <Player key={player.id} name={player.username} streak={player.streak} />
+            ))}
           </div>
         ) : (
           ''
@@ -44,7 +37,6 @@ export class Dashboard extends React.Component<IDashboardProp> {
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
-  players: storeState.dashboard.entity.players,
   dashboards: storeState.dashboard.entities
 });
 
