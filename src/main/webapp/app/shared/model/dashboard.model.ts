@@ -3,9 +3,6 @@ import { IPlayer } from 'app/shared/model//player.model';
 
 export interface IDashboard {
   id?: number;
-  username?: string;
-  playerId?: number;
-  secret?: string;
   user?: IUser;
   players?: IPlayer[];
 }

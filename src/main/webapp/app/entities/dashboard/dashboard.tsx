@@ -35,9 +35,6 @@ export class Dashboard extends React.Component<IDashboardProps> {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Username</th>
-                <th>Player Id</th>
-                <th>Secret</th>
                 <th>User</th>
                 <th>Players</th>
                 <th />
@@ -51,9 +48,6 @@ export class Dashboard extends React.Component<IDashboardProps> {
                       {dashboard.id}
                     </Button>
                   </td>
-                  <td>{dashboard.username}</td>
-                  <td>{dashboard.playerId}</td>
-                  <td>{dashboard.secret}</td>
                   <td>{dashboard.user ? dashboard.user.id : ''}</td>
                   <td>
                     {dashboard.players

@@ -1,19 +1,6 @@
 {
-    "name": "Dashboard",
-    "fields": [
-        {
-            "fieldName": "username",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "playerId",
-            "fieldType": "Integer"
-        },
-        {
-            "fieldName": "secret",
-            "fieldType": "String"
-        }
-    ],
+    "fluentMethods": true,
+    "clientRootFolder": "",
     "relationships": [
         {
             "relationshipType": "one-to-one",
@@ -32,13 +19,12 @@
             "ownerSide": true
         }
     ],
+    "fields": [],
     "changelogDate": "20181115094440",
-    "entityTableName": "dashboard",
     "dto": "no",
-    "pagination": "no",
+    "searchEngine": false,
     "service": "no",
+    "entityTableName": "dashboard",
     "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "clientRootFolder": "",
-    "applications": "*"
+    "pagination": "no"
 }

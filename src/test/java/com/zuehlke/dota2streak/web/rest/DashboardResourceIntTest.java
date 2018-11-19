@@ -44,15 +44,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = Dota2StreakApp.class)
 public class DashboardResourceIntTest {
 
-    private static final String DEFAULT_USERNAME = "AAAAAAAAAA";
-    private static final String UPDATED_USERNAME = "BBBBBBBBBB";
-
-    private static final Integer DEFAULT_PLAYER_ID = 1;
-    private static final Integer UPDATED_PLAYER_ID = 2;
-
-    private static final String DEFAULT_SECRET = "AAAAAAAAAA";
-    private static final String UPDATED_SECRET = "BBBBBBBBBB";
-
     @Autowired
     private DashboardRepository dashboardRepository;
 
@@ -93,10 +84,7 @@ public class DashboardResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Dashboard createEntity(EntityManager em) {
-        Dashboard dashboard = new Dashboard()
-            .username(DEFAULT_USERNAME)
-            .playerId(DEFAULT_PLAYER_ID)
-            .secret(DEFAULT_SECRET);
+        Dashboard dashboard = new Dashboard();
         return dashboard;
     }
 
@@ -120,9 +108,6 @@ public class DashboardResourceIntTest {
         List<Dashboard> dashboardList = dashboardRepository.findAll();
         assertThat(dashboardList).hasSize(databaseSizeBeforeCreate + 1);
         Dashboard testDashboard = dashboardList.get(dashboardList.size() - 1);
-        assertThat(testDashboard.getUsername()).isEqualTo(DEFAULT_USERNAME);
-        assertThat(testDashboard.getPlayerId()).isEqualTo(DEFAULT_PLAYER_ID);
-        assertThat(testDashboard.getSecret()).isEqualTo(DEFAULT_SECRET);
     }
 
     @Test
@@ -154,10 +139,7 @@ public class DashboardResourceIntTest {
         restDashboardMockMvc.perform(get("/api/dashboards?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(dashboard.getId().intValue())))
-            .andExpect(jsonPath("$.[*].username").value(hasItem(DEFAULT_USERNAME.toString())))
-            .andExpect(jsonPath("$.[*].playerId").value(hasItem(DEFAULT_PLAYER_ID)))
-            .andExpect(jsonPath("$.[*].secret").value(hasItem(DEFAULT_SECRET.toString())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(dashboard.getId().intValue())));
     }
     
     @SuppressWarnings({"unchecked"})
@@ -203,10 +185,7 @@ public class DashboardResourceIntTest {
         restDashboardMockMvc.perform(get("/api/dashboards/{id}", dashboard.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(dashboard.getId().intValue()))
-            .andExpect(jsonPath("$.username").value(DEFAULT_USERNAME.toString()))
-            .andExpect(jsonPath("$.playerId").value(DEFAULT_PLAYER_ID))
-            .andExpect(jsonPath("$.secret").value(DEFAULT_SECRET.toString()));
+            .andExpect(jsonPath("$.id").value(dashboard.getId().intValue()));
     }
 
     @Test
@@ -229,10 +208,6 @@ public class DashboardResourceIntTest {
         Dashboard updatedDashboard = dashboardRepository.findById(dashboard.getId()).get();
         // Disconnect from session so that the updates on updatedDashboard are not directly saved in db
         em.detach(updatedDashboard);
-        updatedDashboard
-            .username(UPDATED_USERNAME)
-            .playerId(UPDATED_PLAYER_ID)
-            .secret(UPDATED_SECRET);
 
         restDashboardMockMvc.perform(put("/api/dashboards")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -243,9 +218,6 @@ public class DashboardResourceIntTest {
         List<Dashboard> dashboardList = dashboardRepository.findAll();
         assertThat(dashboardList).hasSize(databaseSizeBeforeUpdate);
         Dashboard testDashboard = dashboardList.get(dashboardList.size() - 1);
-        assertThat(testDashboard.getUsername()).isEqualTo(UPDATED_USERNAME);
-        assertThat(testDashboard.getPlayerId()).isEqualTo(UPDATED_PLAYER_ID);
-        assertThat(testDashboard.getSecret()).isEqualTo(UPDATED_SECRET);
     }
 
     @Test

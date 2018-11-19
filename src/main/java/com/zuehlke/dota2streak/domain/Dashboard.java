@@ -24,15 +24,6 @@ public class Dashboard implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "player_id")
-    private Integer playerId;
-
-    @Column(name = "secret")
-    private String secret;
-
     @OneToOne    @JoinColumn(unique = true)
     private User user;
 
@@ -50,45 +41,6 @@ public class Dashboard implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public Dashboard username(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Integer getPlayerId() {
-        return playerId;
-    }
-
-    public Dashboard playerId(Integer playerId) {
-        this.playerId = playerId;
-        return this;
-    }
-
-    public void setPlayerId(Integer playerId) {
-        this.playerId = playerId;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public Dashboard secret(String secret) {
-        this.secret = secret;
-        return this;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
     }
 
     public User getUser() {
@@ -152,9 +104,6 @@ public class Dashboard implements Serializable {
     public String toString() {
         return "Dashboard{" +
             "id=" + getId() +
-            ", username='" + getUsername() + "'" +
-            ", playerId=" + getPlayerId() +
-            ", secret='" + getSecret() + "'" +
             "}";
     }
 }

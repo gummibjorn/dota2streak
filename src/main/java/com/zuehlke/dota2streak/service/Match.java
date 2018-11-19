@@ -6,17 +6,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Match {
     @JsonProperty("match_id")
-    private int matchId;
+    private long matchId;
     @JsonProperty("player_slot")
     private int playerSlot;
     @JsonProperty("radiant_win")
     private boolean radiantWin;
 
-    public int getMatchId() {
+    public long getMatchId() {
         return matchId;
     }
 
-    public void setMatchId(int matchId) {
+    public void setMatchId(long matchId) {
         this.matchId = matchId;
     }
 

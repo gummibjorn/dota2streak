@@ -28,18 +28,6 @@ export class DashboardDetail extends React.Component<IDashboardDetailProps> {
             Dashboard [<b>{dashboardEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
-            <dt>
-              <span id="username">Username</span>
-            </dt>
-            <dd>{dashboardEntity.username}</dd>
-            <dt>
-              <span id="playerId">Player Id</span>
-            </dt>
-            <dd>{dashboardEntity.playerId}</dd>
-            <dt>
-              <span id="secret">Secret</span>
-            </dt>
-            <dd>{dashboardEntity.secret}</dd>
             <dt>User</dt>
             <dd>{dashboardEntity.user ? dashboardEntity.user.id : ''}</dd>
             <dt>Players</dt>

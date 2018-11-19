@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
-import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
+import { AvForm, AvGroup, AvInput } from 'availity-reactstrap-validation';
 // tslint:disable-next-line:no-unused-variable
 import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -97,24 +97,6 @@ export class DashboardUpdate extends React.Component<IDashboardUpdateProps, IDas
                     <AvInput id="dashboard-id" type="text" className="form-control" name="id" required readOnly />
                   </AvGroup>
                 ) : null}
-                <AvGroup>
-                  <Label id="usernameLabel" for="username">
-                    Username
-                  </Label>
-                  <AvField id="dashboard-username" type="text" name="username" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="playerIdLabel" for="playerId">
-                    Player Id
-                  </Label>
-                  <AvField id="dashboard-playerId" type="string" className="form-control" name="playerId" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="secretLabel" for="secret">
-                    Secret
-                  </Label>
-                  <AvField id="dashboard-secret" type="text" name="secret" />
-                </AvGroup>
                 <AvGroup>
                   <Label for="user.id">User</Label>
                   <AvInput id="dashboard-user" type="select" className="form-control" name="user.id">
