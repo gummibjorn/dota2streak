@@ -28,7 +28,7 @@ export class Home extends React.Component<IHomeProp> {
     const { account } = this.props;
     return (
       <div>
-        {this.state.displayLoginInfo ? (
+        {this.state.displayLoginInfo && account ? (
           <Row>
             <Col md="9">
               {account && account.login ? (
@@ -58,7 +58,7 @@ export class Home extends React.Component<IHomeProp> {
             </Col>
           </Row>
         ) : (
-          <h2>Welcome to the streak dashboard</h2>
+          <h2>The streak dashboard</h2>
         )}
         <Dashboard />
       </div>

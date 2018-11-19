@@ -24,7 +24,7 @@ export class Dashboard extends React.Component<IDashboardProp> {
       <div>
         {dashboards && dashboards[0] ? (
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-            {dashboards[0].players.map(player => (
+            {dashboards[0].players.sort((p1, p2) => (p1.streak < p2.streak ? 1 : -1)).map(player => (
               <Player key={player.id} name={player.username} streak={player.streak} />
             ))}
           </div>

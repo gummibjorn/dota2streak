@@ -99,10 +99,13 @@ const apiUrl = 'api/dashboards';
 
 // Actions
 
-export const getEntities: ICrudGetAllAction<IDashboard> = (page, size, sort) => ({
-  type: ACTION_TYPES.FETCH_DASHBOARD_LIST,
-  payload: axios.get<IDashboard>(`${apiUrl}?cacheBuster=${new Date().getTime()}`)
-});
+export const getEntities: ICrudGetAllAction<IDashboard> = () => dispatch => {
+  setTimeout(() => dispatch(getEntities()), 10000);
+  return dispatch({
+    type: ACTION_TYPES.FETCH_DASHBOARD_LIST,
+    payload: axios.get<IDashboard>(`${apiUrl}?cacheBuster=${new Date().getTime()}`)
+  });
+};
 
 export const getEntity: ICrudGetAction<IDashboard> = id => {
   const requestUrl = `${apiUrl}/${id}`;
